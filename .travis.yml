@@ -11,11 +11,3 @@ script:
 - cmake -Hsolver_lib -Bsolver_lib/_build
 - cmake -Hsolver_application -Bsolver_application/_build
 
-addons:
-apt:
-sources:
-- ubuntu-toolchain-r-test
-- llvm-toolchain-precise-3.6
-packages:
-- g++-7
-- clang-3.6
