@@ -1,14 +1,21 @@
 language: cpp
 
+compiler:
+- gcc
+- clan
+
 script:
-- cmake -H. -B_build -DCMAKE_INSTALL_PREFIX=_install
-- cmake --build _build
-- cmake --build _build --target install
+- cmake -Hformatter_lib/ -Bformatter_lib/_build
+- cmake -Hformatter_ex_lib/ -Bformatter_ex_lib/_build
+- cmake -Hhello_world_application -Bhello_world_application/_build
+- cmake -Hsolver_lib -Bsolver_lib/_build
+- cmake -Hsolver_application -Bsolver_application/_build
 
 addons:
-  apt:
-    sources:
-      - george-edison55-precise-backports
-    packages:
-      - cmake
-      - cmake-data
+apt:
+sources:
+- ubuntu-toolchain-r-test
+- llvm-toolchain-precise-3.6
+packages:
+- g++-7
+- clang-3.6
